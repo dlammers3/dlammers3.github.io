@@ -1,3 +1,8 @@
 # Favorite Cookie Survey
 ## Introduction
-### In this assignment we were asked to write a program that shows how pickling works and at the
+### In this assignment we were asked to write a program that shows how pickling works and at the same time, capture any errors that may occur. The program I wrote is meant to be used as a survey to poll users on their favorite of three different cookies. It then stores their selection in a dictionary which is then pickled and saved in a .pickle file. Exception handling is employed to handle a fresh load of the program on a shared server or webpage. 
+
+## Writing the Script
+### I decided to write a script that would survey the user and store their input in a dictionary. In order to do this directly, I would have to employ pickling so that it could be saved to a .pickle or .bin file. Since this program is meant to be used as a survey tool, I wanted to be able to initialize the program with an empty dictionary and then overwrite it as users participated in the program. Short of creating the .pickle file with a separate program and saving it locally with the FavCookie.py script, I needed a way to initialize an empty dictionary and then never call it again. I also found that if the file was not pre-existing, that I would get a FileNotFoundError. I will come back to this issue shortly.
+
+### Assuming that the file is already present in a local folder, the data is read in using the pickle.load() method as seen in fig 1. Already this is much more convenient and straightforward than loading in a list of dictionary rows from a .txt file. Once the dictionary is read in, the user is prompted to answer a question that will be saved as the variable cookie. This answer is then used to build up the dictionary by counting up the value associated with each cookie key by 1 (fig 2).
